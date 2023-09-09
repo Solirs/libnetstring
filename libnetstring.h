@@ -12,7 +12,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License. 
  * 
- * 	Written by Solirs (github.com/Solirs), if this was useful to you please send some love at my contacts ;).
+ * 	Written by Solirs (github.com/Solirs), if this was useful to you please send some love at my email or telegram ;).
  * 
 */
 
