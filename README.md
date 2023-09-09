@@ -15,15 +15,15 @@ typedef struct netstring{
 } netstring;
 ```
 
-You can create a netstring from a char array using the lns_makenetstring function.
+You can create a netstring from a char array using the lns_makenetstring function.  
 ```netstring lns_makenetstring(char str[], size_t size);```  
 
 You can get a netstring's content with the lns_getstring(_) function.  
-```char* lns_getstring(netstring nsr);```  
+```char* lns_getstring(netstring nsr);```   
 ```char* lns_getstring_(char* buf);```  
 
 Similarly, you can get its prepended length with lns_getlen(_).  
-```int lns_getlen(char* buf);```
+```int lns_getlen(char* buf);```  
 ```int lns_getlen_(netstring buf);```  
 
 Example:  
