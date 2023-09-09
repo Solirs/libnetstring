@@ -2,7 +2,7 @@
 Libnetstring is a simple header only C library for handling netstrings.  
 To use it simply download libnetstring.h and #include it in your favourite source or header file.  
 
-[netstring](https://en.wikipedia.org/wiki/Netstring) is a simple format for byte strings/arrays which prepends their length (see the [spec](https://cr.yp.to/proto/netstrings.txt).  
+[netstring](https://en.wikipedia.org/wiki/Netstring) is a simple format for byte strings/arrays which prepends their length (see the [spec](https://cr.yp.to/proto/netstrings.txt)).  
 Which can be useful for tasks such as TCP message framing.  
 
 # Basic documentation
