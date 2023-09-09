@@ -4,11 +4,11 @@
 void helloworldtest(){
 	char b[13] = "hello world!";
 	netstring a = lns_makenetstring(b, strlen(b)); 
-	char* axa = lns_getstring_(a);
+	char* axa = lns_getstring(a);
 	
-	lns_printnetstring_(a);
+	lns_printnetstring(a);
 	printf("%s\n", axa);
-	printf("%d\n", lns_getlen_(a));
+	printf("%d\n", lns_getlen(a));
 
 	/*
 	 * Expected output:

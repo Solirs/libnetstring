@@ -25,18 +25,18 @@ netstring lns_makenetstring(char str[], size_t size){
 	return ret;
 }
 
-void lns_printnetstring(char* buf, size_t bufsize){
+void lns_printnetstring_(char* buf, size_t bufsize){
 	for (int i = 0; i < bufsize; i++){
 		printf("%x ", buf[i]);
 	}	
 	printf("\n");
 }
 
-void lns_printnetstring_(netstring nsr){
-	lns_printnetstring(nsr.str, nsr.len);
+void lns_printnetstring(netstring nsr){
+	lns_printnetstring_(nsr.str, nsr.len);
 }
 
-char* lns_getstring(char* buf){
+char* lns_getstring_(char* buf){
 	char size[4] = {0, 0, 0, 0};
 	int index = 0;
 	while (buf[index] != 58){
@@ -55,11 +55,11 @@ char* lns_getstring(char* buf){
 	return ret;	
 }
 // Method overload if you want to pass a netstring struct
-char* lns_getstring_(netstring nsr){
-	return lns_getstring(nsr.str);
+char* lns_getstring(netstring nsr){
+	return lns_getstring_(nsr.str);
 }
 
-int lns_getlen(char* buf){
+int lns_getlen_(char* buf){
 	char size[4] = {0, 0, 0, 0};
 	int index = 0;
 	while (buf[index] != 58){
@@ -73,7 +73,7 @@ int lns_getlen(char* buf){
 	return sz;	
 }
 
-int lns_getlen_(netstring buf){
-	return lns_getlen(buf.str);
+int lns_getlen(netstring buf){
+	return lns_getlen_(buf.str);
 }
 #endif
