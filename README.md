@@ -1,13 +1,13 @@
 # libnetstring
-Libnetstring is a simple header only C library for handling netstrings.
-To use it simply download libnetstring.h and #include it in your favourite source or header file.
+Libnetstring is a simple header only C library for handling netstrings.  
+To use it simply download libnetstring.h and #include it in your favourite source or header file.  
 
-[netstring](https://en.wikipedia.org/wiki/Netstring) is a simple format for byte strings/arrays which prepends their length (see the [spec](https://cr.yp.to/proto/netstrings.txt).
-Which can be useful for tasks such as TCP message framing.
+[netstring](https://en.wikipedia.org/wiki/Netstring) is a simple format for byte strings/arrays which prepends their length (see the [spec](https://cr.yp.to/proto/netstrings.txt).  
+Which can be useful for tasks such as TCP message framing.  
 
 # Basic documentation
-Netstrings are stored in a "netstring" struct along with their length.
-It contains the members "str" (the content) and len (the length).
+Netstrings are stored in a "netstring" struct along with their length.  
+It contains the members "str" (the content) and len (the length).  
 ```
 typedef struct netstring{
 	char* str;
@@ -18,15 +18,15 @@ typedef struct netstring{
 You can create a netstring from a char array using the lns_makenetstring function.
 ```netstring lns_makenetstring(char str[], size_t size);```  
 
-You can get a netstring's content with the lns_getstring(_) function.
-```char* lns_getstring(netstring nsr);```
-```char* lns_getstring_(char* buf);```
+You can get a netstring's content with the lns_getstring(_) function.  
+```char* lns_getstring(netstring nsr);```  
+```char* lns_getstring_(char* buf);```  
 
-Similarly, you can get its prepended length with lns_getlen(_).
+Similarly, you can get its prepended length with lns_getlen(_).  
 ```int lns_getlen(char* buf);```
-```int lns_getlen_(netstring buf);```
+```int lns_getlen_(netstring buf);```  
 
-Example:
+Example:  
 ```
 void helloworldtest(){
 	char b[13] = "hello world!";
