@@ -2,23 +2,22 @@
 #define LIBNETSTRING
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct netstring{
 	char* str;
 	unsigned int len;
 } netstring;
 
-netstring lns_makenetstring(char str[], size_t size){
+netstring lns_makenetstring(char* str, size_t size){
 	char* buf = malloc(4);
 	unsigned int index;
 	index = sprintf(buf, "%ld", size);
 	buf = realloc(buf, index + size + 2);
 	buf[index] = ':';
 	index++;
-	for (int i = 0; i < size; i++){
-		buf[index] = str[i];
-		index++;
-	}
+	memcpy(buf + index, str, size);
+	index += size;
 	buf[index] = ',';
 	
 	netstring ret = {buf, index + 1};
@@ -48,10 +47,7 @@ char* lns_getstring_(char* buf){
 	int sz = 0;
 	sscanf(size, "%d", &sz);
 	char* ret = malloc(sz + index + 1);	
-	for (int i = 0; i < sz; i++){
-		ret[i] = buf[index];
-		index++;
-	}
+	memcpy(ret, buf + index, sz);
 	return ret;	
 }
 // Method overload if you want to pass a netstring struct

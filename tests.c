@@ -1,5 +1,9 @@
 #include "libnetstring.h"
 #include <string.h>
+typedef struct student {
+	int average;
+	char* name;
+} student;
 
 void helloworldtest(){
 	char b[13] = "hello world!";
@@ -20,8 +24,34 @@ void helloworldtest(){
 	free(axa);
 	free(a.str);	
 }
+void structtest(){
+	student std;
+	std.average = 18;
+	std.name = "Marianne";
+	char* b = malloc(sizeof(student));
+	memcpy(b, &std, sizeof(student));
+	
+	netstring a = lns_makenetstring(b, sizeof(student));
+	char* axa = lns_getstring(a);
+	
+	student abc;
+	memcpy(&abc, axa, sizeof(student));
+	
+	printf("%s\n", abc.name);
+	printf("%d\n", abc.average);
+	
+	/*
+	 * Expected output:
+	 * Marianne
+	 * 18
+	*/	
+	free(b);
+	free(axa);
+	free(a.str);
+	
+}
 int main(){
 	helloworldtest();
-
+	structtest();
 	return 0;
 }
