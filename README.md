@@ -1,5 +1,6 @@
 # libnetstring
 Libnetstring is a simple header only C library for handling netstrings.  
+It is free software licensed under Apache 2.0, see LICENSE.  
 To use it simply download libnetstring.h and #include it in your favourite source or header file.  
 
 [netstring](https://en.wikipedia.org/wiki/Netstring) is a simple format for byte strings/arrays which prepends their length (see the [spec](https://cr.yp.to/proto/netstrings.txt)).  
