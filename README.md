@@ -7,7 +7,7 @@ Which can be useful for tasks such as TCP message framing.
 
 # Basic documentation
 Netstrings are stored in a "netstring" struct along with their length.  
-It contains the members "str" (the content) and len (the length).  
+It contains the members "str" (the content) and len (the length of str, including ':' ',' and prepended length).  
 ```
 typedef struct netstring{
 	char* str;
