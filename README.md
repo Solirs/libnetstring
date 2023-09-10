@@ -27,6 +27,9 @@ Similarly, you can get its prepended length with lns_getlen(_).
 ```int lns_getlen(char* buf);```  
 ```int lns_getlen_(netstring buf);```  
 
+The functions lns_makenetstring and lns_getstring allocate memory on the heap and their return value must be freed.
+For lns_makenetstring only the "str" parameter should be freed. (see example below)
+
 Example:  
 ```
 void helloworldtest(){
