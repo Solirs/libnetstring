@@ -27,19 +27,28 @@ Similarly, you can get its prepended length with lns_getlen(_).
 ```int lns_getlen(char* buf);```  
 ```int lns_getlen_(netstring buf);```  
 
-The functions lns_makenetstring and lns_getstring allocate memory on the heap and their return value must be freed.
-For lns_makenetstring only the "str" parameter should be freed. (see example below)
+**The functions lns_makenetstring and lns_getstring allocate memory on the heap and their return value must be freed.
+For lns_makenetstring only the "str" parameter should be freed. (see example below)!!!!!!!!**
 
 Example:  
 ```
 void helloworldtest(){
+	/* Encode to netstring */
 	char b[13] = "hello world!";
-	netstring a = lns_makenetstring(b, strlen(b)); 
-	char* axa = lns_getstring(a);
-	
+	netstring a = lns_makenetstring(b, strlen(b));
+	/* Print every byte in the array in hex format (%x) */
 	lns_printnetstring(a);
+
+	/* Get byte array from netstring (in this case our hello world string)*/
+	char* axa = lns_getstring(a);
+
+	/* Print out hello world string */
 	printf("%s\n", axa);
+
+	/* Print the byte arrays length (as contained in our netstring) */
 	printf("%d\n", lns_getlen(a));
+
+	/* Free stuff from functions that allocate memory*/
 	free(axa);
 	free(a.str);	
 }
