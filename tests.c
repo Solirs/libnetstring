@@ -66,7 +66,10 @@ void recursivetest(){
 	 * 31 36 3a 31 32 3a 68 65 6c 6c 6f 20 77 6f 72 6c 64 21 2c 2c 
 	 * 12:hello world!,
 	*/
-	
+	free(axc);
+	free(axa);
+	free(a.str);
+	free(c.str);
 }
 int main(){
 	helloworldtest();
